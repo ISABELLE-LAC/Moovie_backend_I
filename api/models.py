@@ -25,7 +25,7 @@ class Movie(Base):
    # Définir les relations entre les tables en utilisant la fonction relationship
    ratings = relationship("Rating", back_populates="movie", cascade="all, delete") # chaque évaluation est lié à un film
    tags = relationship("Tag", back_populates="movie", cascade="all, delete") # chaque évaluation est lié à un film
-   link = relationship("Link", back_populates="movie", uselist=False, cascade="all, delete") # il y'a un seul lien par film
+   links = relationship("Link", back_populates="movie", uselist=False, cascade="all, delete") # il y'a un seul lien par film
 
 
 class Rating(Base):
@@ -57,7 +57,4 @@ class Link(Base):
     imdbId = Column(String) # id du film dans la base imdb, ces deux permettent d'avoir l'affiche, le poster du film
     tmdbId = Column(Integer) # id du film dans la base tmdb
     # Définir les relations avec les autres tables
-    movie = relationship("Movie", back_populates="link")
-
-
-
+    movie = relationship("Movie", back_populates="links")
