@@ -1,7 +1,7 @@
 import httpx
 from typing import Optional, List, Literal, Union
 
-from .schemas import MovieSimple, MovieDetailed, RatingSimple, TagSimple, LinkSimple, AnalyticsResponse
+from .schemas import MovieSimple, MovieDetailed, RatingSimple, TagSimple, LinkSimple
 from .film_config import MovieConfig
 
 import pandas as pd
@@ -122,8 +122,8 @@ class MovieClient:
         response.raise_for_status()
         return self._format_output(response.json(), LinkSimple, output_format)
 
-    def get_analytics(self) -> AnalyticsResponse:
-        url = f"{self.movie_base_url}/analytics"
-        response = httpx.get(url)
-        response.raise_for_status()
-        return AnalyticsResponse(**response.json())
+    # def get_analytics(self) -> AnalyticsResponse:
+    #     url = f"{self.movie_base_url}/analytics"
+    #     response = httpx.get(url)
+    #     response.raise_for_status()
+    #     return AnalyticsResponse(**response.json())

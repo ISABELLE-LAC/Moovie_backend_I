@@ -228,32 +228,29 @@ def list_links(
 
 
 #Endpoint pour obtenir des statistiques sur la base de données
-@app.get(
-    "/analytics",
-    summary="Obtenir des statistiques",
-    description="""
-    Retourne un résumé analytique de la base de données :
+# @app.get(
+#     "/analytics",
+#     summary="Obtenir des statistiques",
+#     description="""
+#     Retourne un résumé analytique de la base de données :
 
-    - Nombre total de films
-    - Nombre total d’évaluations
-    - Nombre total de tags
-    - Nombre de liens vers IMDB/TMDB
-    """,
-    response_model=schemas.AnalyticsResponse,
-    tags=["analytics"]
-)
-def get_analytics(db: Session = Depends(get_db)):
-    movie_count = helpers.get_movie_count(db)
-    rating_count = helpers.get_rating_count(db)
-    tag_count = helpers.get_tag_count(db)
-    link_count = helpers.get_link_count(db)
+#     - Nombre total de films
+#     - Nombre total d’évaluations
+#     - Nombre total de tags
+#     - Nombre de liens vers IMDB/TMDB
+#     """,
+#     response_model=schemas.AnalyticsResponse,
+#     tags=["analytics"]
+# )
+# def get_analytics(db: Session = Depends(get_db)):
+#     movie_count = helpers.get_movie_count(db)
+#     rating_count = helpers.get_rating_count(db)
+#     tag_count = helpers.get_tag_count(db)
+#     link_count = helpers.get_link_count(db)
 
-    return schemas.AnalyticsResponse(
-        movie_count=movie_count,
-        rating_count=rating_count,
-        tag_count=tag_count,
-        link_count=link_count
-    )
-
-
-
+#     return schemas.AnalyticsResponse(
+#         movie_count=movie_count,
+#         rating_count=rating_count,
+#         tag_count=tag_count,
+#         link_count=link_count
+#     )
