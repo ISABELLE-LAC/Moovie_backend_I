@@ -103,3 +103,13 @@ class LinkSimple(BaseModel):
 
     class Config: 
         orm_mode = True
+
+
+class AnalyticsResponse(BaseModel):
+    movie_count: int
+    rating_count: int
+    tag_count: int
+    link_count: int
+
+    class Config:
+        orm_mode = True 
